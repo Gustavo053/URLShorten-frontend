@@ -4,8 +4,10 @@ import Header from '../Header/Header';
 import api from '../../api/api';
 
 import './Link.css';
+import { useHistory } from 'react-router-dom';
 
 function Link() {
+    const history = useHistory();
     const [url, setUrl] = useState([]);
     const [login, setLogin] = useState();
 
@@ -18,7 +20,8 @@ function Link() {
                 setUrl(response.data);
                 setLogin(response.data[0].userLogin);
             } catch (err) {
-                alert('Erro ao carregar informações ' + err);
+                alert('Erro ao carregar informações');
+                history.push('/');
             }
         }
         loadLinks();
