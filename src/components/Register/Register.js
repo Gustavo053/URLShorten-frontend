@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import spring from '../../api/spring';
 
-import Header from '../header/Header';
+import Header from '../Header/Header';
 import './Register.css';
 
 function Register() {

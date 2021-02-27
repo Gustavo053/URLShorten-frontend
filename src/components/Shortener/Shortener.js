@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import spring from '../../api/spring';
 // import axios from 'axios';
 
-import Header from '../header/Header';
+import Header from '../Header/Header';
 import './Shortener.css';
 
 function Shortener() {
