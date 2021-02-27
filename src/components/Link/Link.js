@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '../Header/Header';
 
-import spring from '../../api/spring';
+import api from '../../api/api';
 
 import './Link.css';
 
@@ -13,7 +13,7 @@ function Link() {
         async function loadLinks() {
             const auth = localStorage.getItem('auth');
             try {
-                const response = await spring.get(`/user/${auth}`);
+                const response = await api.get(`/user/${auth}`);
 
                 setUrl(response.data);
                 setLogin(response.data[0].userLogin);

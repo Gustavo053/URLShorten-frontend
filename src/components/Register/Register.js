@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import spring from '../../api/spring';
+import api from '../../api/api';
 
 import Header from '../Header/Header';
 import './Register.css';
@@ -26,7 +26,7 @@ function Register() {
         }
 
         try {
-            const response = await spring.post('/register', user)
+            const response = await api.post('/register', user)
             if (response.status === 200) {
                 localStorage.setItem('auth', response.data.id);
                 history.push('/');

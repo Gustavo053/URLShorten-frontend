@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import isAuthenticate from '../auth/auth';
@@ -8,6 +8,7 @@ import Register from './Register/Register';
 import Login from './Login/Login';
 import Link from './Link/Link';
 
+//verifica se o usuário está logado para poder acessar os links da conta
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
         isAuthenticate() ? (
