@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom'
 import './Header.css';
 
 function Header() {
+
+    function getCookie() {
+        const auth = localStorage.getItem('auth');
+        return auth;
+    }
+
     return (
         <>
             <header id="header">
@@ -18,7 +24,7 @@ function Header() {
                         <Link id="login" to="/login">Login</Link>
                     </div>
                     <div>
-                        <Link id="links" to="/user">Meus links</Link>
+                        <Link id="links" to={'/user/' + getCookie()}>Meus links</Link>
                     </div>
                 </nav>
             </header>

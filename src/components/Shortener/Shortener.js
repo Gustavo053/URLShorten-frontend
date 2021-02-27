@@ -22,9 +22,18 @@ function Shortener() {
             history.push('/register');
         } else {
             try {
-                const response = await spring.post('/', { userId: auth, urlOriginal: url, urlGenerated: url, date: Date.now() })
-                if (response.status === 200) {
-                    setUrlShort(response.data.urlGenerated);
+                const responseUser = await spring.get(`/user/get/${auth}`);
+
+                const responseUrl = await spring.post('/', {
+                    userId: auth,
+                    userLogin: responseUser.data.login,
+                    urlOriginal: url,
+                    urlGenerated: url,
+                    date: Date.now()
+                })
+
+                if (responseUrl.status === 200) {
+                    setUrlShort(responseUrl.data.urlGenerated);
                 }
             } catch (err) {
                 localStorage.removeItem('auth');

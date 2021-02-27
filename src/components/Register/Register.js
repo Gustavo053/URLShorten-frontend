@@ -28,7 +28,6 @@ function Register() {
         try {
             const response = await spring.post('/register', user)
             if (response.status === 200) {
-                console.log(response.data.id);
                 localStorage.setItem('auth', response.data.id);
                 history.push('/');
             }
